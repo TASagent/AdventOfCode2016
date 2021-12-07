@@ -1,0 +1,103 @@
+cpy 1 a
+cpy 1 b
+cpy 26 d
+jnz c 2
+jnz 1 5
+cpy 7 c
+inc d
+dec c
+jnz c -2
+cpy a c
+inc a
+dec b
+jnz b -2
+cpy c b
+dec d
+jnz d -6
+cpy 13 c
+cpy 14 d
+inc a
+dec d
+jnz d -2
+dec c
+jnz c -5
+
+---------
+
+
+A = 1
+B = 1
+C = 0
+D = 26
+
+if (C != 0)
+{
+    GoTo LabelA
+}
+GoTo LabelB
+LabelA: C = 7
+LabelC: D++
+C--
+if (C != 0)
+{
+    GoTo LabelC
+}
+LabelB: C = A
+LabelD: A++
+B--
+if (B != 0)
+{
+    GoTo LabelD
+}
+B = C
+D--
+if (D != 0)
+{
+    GoTo LabelB
+}
+C = 13
+LabelF: D = 14
+LabelE: A++
+D--
+if (D != 0)
+{
+    GoTo LabelE
+}
+C--
+if (C != 0)
+{
+    GoTo LabelF
+}
+
+-----
+
+A = 1
+B = 1
+C = 0
+D = 26
+
+if (C != 0)
+{
+    C = 0
+    D += 7
+}
+
+//Fibonacci's sequence!
+//-1 indexed element of the fib sequence, then increased by 14 * 13
+For (int i = 0; i < D; i++)
+{
+    C = A
+    A += B
+    B = C
+}
+
+A += 14*13
+
+
+//317811 + 14 * 13
+//317993
+
+//Part 2:
+//fib(35) + 14 * 13
+//9227465 + 14 * 13
+//9227647
